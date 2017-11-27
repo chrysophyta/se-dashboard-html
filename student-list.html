@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Self Emotion Dashboard</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+</head>
+<body id="student-list">
+	<nav>
+		<ul>
+			<li class="logo"><a href="index.html"></a></li>
+			<li class="empty"></li>
+			<li class="welcome">Hi, Justin</li>
+			<li class="nav-item"><a href="#"><i data-feather="settings"></i>Account</a></li>
+			<li class="nav-item"><a href="#"><i data-feather="power"></i>Logout</a></li>
+		</ul>
+		
+	</nav>
+	<div class="wrapper">
+		<div class="sidebar">
+			<ul>
+				<li><a href="index.html"><i data-feather="home"></i>Dashboard</a></li>
+				<li><a href="students.html"><i data-feather="user"></i>Students</a></li>
+				<li><a href="tasks.html"><i data-feather="check-square"></i>Tasks</a></li>
+				<li><a href="games.html"><i data-feather="grid"></i>Games</a></li>
+			</ul>
+		</div>
+		
+		<div class="h-content">
+			<p class="card-title">Class A</p>
+			<div class="top">
+				<div class="card tab1">
+					<canvas id="linegraph" height="100" width="100"></canvas>
+					<canvas id="piechart" height="100" width="100"></canvas>
+				</div>
+				<div class="card tab2 hide"></div>
+				<div class="card tab3 hide"></div>
+			</div>
+		</div>
+	</div>
+	<script>
+  	feather.replace()
+
+  	var ctx = document.getElementById("linegraph").getContext('2d');
+	var linegraph = new Chart(ctx, {
+	    type: 'bar',
+	    data: {
+	        labels: ["January", "February", "March", "April", "May", "June"],
+	        datasets: [{
+	            label: 'Class A',
+	            data: [12, 8, 3, 5, 2, 3],
+	            backgroundColor: [
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                
+	            ],
+	            borderColor: [
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	            ],
+	            borderWidth: 1
+	        }, {
+	            label: 'Class B',
+	            data: [3, 8, 2, 7, 4, 6],
+	            backgroundColor: [
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                
+	            ],
+	            borderColor: [
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	            ],
+	            borderWidth: 1
+	        }, {
+	            label: 'Class C',
+	            data: [5, 1, 5, 3, 7, 2],
+	            backgroundColor: [
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                
+	            ],
+	            borderColor: [
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	            ],
+	            borderWidth: 1
+	        }]
+	    },
+	    options: {
+	    	 title:{
+                display:true,
+                text:"2017 At-Risk Students"
+            },
+             tooltips: {
+             mode: 'index',
+             intersect: false
+            },
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true,
+
+	                },
+	                stacked:true,
+	            }],
+	        	xAxes: [{
+	        		stacked: true
+	        	}]
+	        },
+	        responsive:true
+	    }
+	});
+
+	var pieData = {
+		    datasets: [{
+		        data: [5, 10, 10],
+			    backgroundColor: [
+	                    "rgba(255, 99, 132, 0.2)",
+	                    "rgba(54, 162, 235, 0.2)",
+	                    "rgba(255, 206, 86, 0.2)"
+	            ],
+	            borderColor: [
+	                    "rgba(255,99,132,1)",
+	                    "rgba(54, 162, 235, 1)",
+	                    "rgba(255, 206, 86, 1)"
+	            ],
+	            borderWidth: 1
+		    }],
+
+		    // These labels appear in the legend and in the tooltips when hovering different arcs
+		    labels: [
+		        'High',
+		        'Moderate',
+		        'Low'
+		    ]
+		};
+		var ctx2 = document.getElementById("piechart").getContext('2d');
+		var classpie1 = new Chart(ctx2, {
+		    type: 'pie',
+		    data: pieData,
+		    options:{
+		    	scales: {
+	                yAxes: [{
+	                	display:false,
+	                    ticks: {
+	                        beginAtZero: true,
+	                    }
+	                }],
+	                xAxes: []
+                
+           		 },
+	            legend:{
+	            	position:'bottom'
+	            }
+		    }
+		});
+  </script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Self Emotion Dashboard</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+</head>
+<body>
+	<nav>
+		<ul>
+			<li class="logo"><a href="index.html"></a></li>
+			<li class="empty"></li>
+			<li class="welcome">Hi, Justin</li>
+			<li class="nav-item"><a href="#"><i data-feather="settings"></i>Account</a></li>
+			<li class="nav-item"><a href="#"><i data-feather="power"></i>Logout</a></li>
+		</ul>
+		
+	</nav>
+	<div class="wrapper">
+		<div class="sidebar">
+			<ul>
+				<li><a href="index.html"><i data-feather="home"></i>Dashboard</a></li>
+				<li><a href="students.html"><i data-feather="user"></i>Students</a></li>
+				<li><a href="tasks.html"><i data-feather="check-square"></i>Tasks</a></li>
+				<li><a href="games.html"><i data-feather="grid"></i>Games</a></li>
+			</ul>
+		</div>
+		
+		<div class="v-content">
+		
+			<div class="left">
+				<div class="card news">
+					<p class="card-title">News</p>
+					<p class="card-des"><i data-feather="alert-triangle" style="color:orange"></i>The test result of Class A ar-risk student is out.</p>
+					<p class="card-des"><i data-feather="check" style="color:green"></i>Feedback of the game was submitted by Class B</p>
+				</div>
+				<div class="card class-overview">
+					<p class="card-title">Class Overviews</p>
+					<canvas id="myChart" width="400" height="180"></canvas>
+				</div>
+				<div class="card tasks">
+					<p class="card-title">Tasks</p>
+					<div class="tasks-item">
+						<input type="checkbox" name="task1"/>
+						<label for="task1"> Talk to Anna's Parents</label>
+					</div>
+
+					<div class="tasks-item">
+						<input type="checkbox" name="task2"/>
+						<label for="task2"> Finish Class A exam marking</label>
+					</div>
+
+					<div class="tasks-item">
+						<input type="checkbox" name="task3"/>
+						<label for="task3"> Give feedback on John's recommendation</label>
+					</div>
+
+				</div>
+			</div>
+
+			<div class="right">
+				<div class="card calendar">
+					<p class="card-title">Calendar</p>
+					<div class="calendar-wrapper">
+					 	<button id="btnPrev" type="button"><i data-feather="chevron-left"></i></button>
+						<button id="btnNext" type="button"><i data-feather="chevron-right"></i></button>
+					  	<div id="divCal"></div>
+					</div>
+
+					<div class="events">
+						<p class="card-title">Upcoming Events</p>
+						<div class="event">
+							<p class="event-time">11/25 10:30am</p>
+							<p class="card-des">Class A Game</p>
+						</div>
+
+						<div class="event">
+							<p class="event-time">11/28 11:30am</p>
+							<p class="card-des">Class B Game</p>
+						</div>
+
+						<div class="event">
+							<p class="event-time">11/28 03:30pm</p>
+							<p class="card-des">Teacher Monthly Meeting</p>
+						</div>
+					</div>
+					
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	<script>
+  	feather.replace()
+
+  	var ctx = document.getElementById("myChart").getContext('2d');
+	var myChart = new Chart(ctx, {
+	    type: 'bar',
+	    data: {
+	        labels: ["January", "February", "March", "April", "May", "June"],
+	        datasets: [{
+	            label: 'Class A',
+	            data: [12, 8, 3, 5, 2, 3],
+	            backgroundColor: [
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                'rgba(255, 99, 132, 0.2)',
+	                
+	            ],
+	            borderColor: [
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	                'rgba(255,99,132,1)',
+	            ],
+	            borderWidth: 1
+	        }, {
+	            label: 'Class B',
+	            data: [3, 8, 2, 7, 4, 6],
+	            backgroundColor: [
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                'rgba(54, 162, 235, 0.2)',
+	                
+	            ],
+	            borderColor: [
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	                'rgba(54, 162, 235, 1)',
+	            ],
+	            borderWidth: 1
+	        }, {
+	            label: 'Class C',
+	            data: [5, 1, 5, 3, 7, 2],
+	            backgroundColor: [
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                'rgba(255, 206, 86, 0.2)',
+	                
+	            ],
+	            borderColor: [
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	                'rgba(255, 206, 86, 1)',
+	            ],
+	            borderWidth: 1
+	        }]
+	    },
+	    options: {
+	    	 title:{
+                display:true,
+                text:"2017 At-Risk Students"
+            },
+             tooltips: {
+             mode: 'index',
+             intersect: false
+            },
+	        scales: {
+	            yAxes: [{
+	                ticks: {
+	                    beginAtZero:true,
+
+	                },
+	                stacked:true,
+	            }],
+	        	xAxes: [{
+	        		stacked: true
+	        	}]
+	        },
+	        responsive:true
+	    }
+	});
+	// calendar
+
+		var Cal = function(divId) {
+
+	  //Store div id
+	  this.divId = divId;
+
+	  // Days of week, starting on Sunday
+	  this.DaysOfWeek = [
+	    'Sun',
+	    'Mon',
+	    'Tue',
+	    'Wed',
+	    'Thu',
+	    'Fri',
+	    'Sat'
+	  ];
+
+	  // Months, stating on January
+	  this.Months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December' ];
+
+	  // Set the current month, year
+	  var d = new Date();
+
+	  this.currMonth = d.getMonth();
+	  this.currYear = d.getFullYear();
+	  this.currDay = d.getDate();
+
+	};
+
+	// Goes to next month
+	Cal.prototype.nextMonth = function() {
+	  if ( this.currMonth == 11 ) {
+	    this.currMonth = 0;
+	    this.currYear = this.currYear + 1;
+	  }
+	  else {
+	    this.currMonth = this.currMonth + 1;
+	  }
+	  this.showcurr();
+	};
+
+	// Goes to previous month
+	Cal.prototype.previousMonth = function() {
+	  if ( this.currMonth == 0 ) {
+	    this.currMonth = 11;
+	    this.currYear = this.currYear - 1;
+	  }
+	  else {
+	    this.currMonth = this.currMonth - 1;
+	  }
+	  this.showcurr();
+	};
+
+	// Show current month
+	Cal.prototype.showcurr = function() {
+	  this.showMonth(this.currYear, this.currMonth);
+	};
+
+	// Show month (year, month)
+	Cal.prototype.showMonth = function(y, m) {
+
+	  var d = new Date()
+	  // First day of the week in the selected month
+	  , firstDayOfMonth = new Date(y, m, 1).getDay()
+	  // Last day of the selected month
+	  , lastDateOfMonth =  new Date(y, m+1, 0).getDate()
+	  // Last day of the previous month
+	  , lastDayOfLastMonth = m == 0 ? new Date(y-1, 11, 0).getDate() : new Date(y, m, 0).getDate();
+
+
+	  var html = '<table>';
+
+	  // Write selected month and year
+	  html += '<thead><tr>';
+	  html += '<td colspan="7">' + this.Months[m] + ' ' + y + '</td>';
+	  html += '</tr></thead>';
+
+
+	  // Write the header of the days of the week
+	  html += '<tr class="days">';
+	  for(var i=0; i < this.DaysOfWeek.length;i++) {
+	    html += '<td>' + this.DaysOfWeek[i] + '</td>';
+	  }
+	  html += '</tr>';
+
+	  // Write the days
+	  var i=1;
+	  do {
+
+	    var dow = new Date(y, m, i).getDay();
+
+	    // If Sunday, start new row
+	    if ( dow == 0 ) {
+	      html += '<tr>';
+	    }
+	    // If not Sunday but first day of the month
+	    // it will write the last days from the previous month
+	    else if ( i == 1 ) {
+	      html += '<tr>';
+	      var k = lastDayOfLastMonth - firstDayOfMonth+1;
+	      for(var j=0; j < firstDayOfMonth; j++) {
+	        html += '<td class="not-current">' + k + '</td>';
+	        k++;
+	      }
+	    }
+
+	    // Write the current day in the loop
+	    var chk = new Date();
+	    var chkY = chk.getFullYear();
+	    var chkM = chk.getMonth();
+	    if (chkY == this.currYear && chkM == this.currMonth && i == this.currDay) {
+	      html += '<td class="today">' + i + '</td>';
+	    } else {
+	      html += '<td class="normal">' + i + '</td>';
+	    }
+	    // If Saturday, closes the row
+	    if ( dow == 6 ) {
+	      html += '</tr>';
+	    }
+	    // If not Saturday, but last day of the selected month
+	    // it will write the next few days from the next month
+	    else if ( i == lastDateOfMonth ) {
+	      var k=1;
+	      for(dow; dow < 6; dow++) {
+	        html += '<td class="not-current">' + k + '</td>';
+	        k++;
+	      }
+	    }
+
+	    i++;
+	  }while(i <= lastDateOfMonth);
+
+	  // Closes table
+	  html += '</table>';
+
+	  // Write HTML to the div
+	  document.getElementById(this.divId).innerHTML = html;
+	};
+
+	// On Load of the window
+	window.onload = function() {
+
+	  // Start calendar
+	  var c = new Cal("divCal");			
+	  c.showcurr();
+
+	  // Bind next and previous button clicks
+	  getId('btnNext').onclick = function() {
+	    c.nextMonth();
+	  };
+	  getId('btnPrev').onclick = function() {
+	    c.previousMonth();
+	  };
+	}
+
+	// Get element by id
+	function getId(id) {
+	  return document.getElementById(id);
+	}
+	</script>
+</body>
+</html>

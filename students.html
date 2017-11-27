@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Self Emotion Dashboard</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+</head>
+<body id="students">
+	<nav>
+		<ul>
+			<li class="logo"><a href="index.html"></a></li>
+			<li class="empty"></li>
+			<li class="welcome">Hi, Justin</li>
+			<li class="nav-item"><a href="#"><i data-feather="settings"></i>Account</a></li>
+			<li class="nav-item"><a href="#"><i data-feather="power"></i>Logout</a></li>
+		</ul>
+		
+	</nav>
+	<div class="wrapper">
+		<div class="sidebar">
+			<ul>
+				<li><a href="index.html"><i data-feather="home"></i>Dashboard</a></li>
+				<li><a href="students.html"><i data-feather="user"></i>Students</a></li>
+				<li><a href="tasks.html"><i data-feather="check-square"></i>Tasks</a></li>
+				<li><a href="games.html"><i data-feather="grid"></i>Games</a></li>
+			</ul>
+		</div>
+		
+		<div class="h-content">
+			<p class="card-title">All Classes</p>
+			<div class="dropdown-orderby">
+				<label class="orderby" for="orderby">Order By</label>
+				<select class="orderby" name="orderby">
+				  <option value="Name">Name</option>
+				  <option value="Label">Label</option>
+				  <option value="Grade">Grade</option>
+				  <option value="Recent">Recent</option>
+				</select>
+			</div>
+			
+			<div class="top">
+				<div class="card class-card">
+					<input type="checkbox" class="class-card-icon-button"></input>
+					<i data-feather="tag"></i>
+					<p class="card-title">Class A</p>
+					<canvas id="classpie1" height="150" width="150"></canvas>
+					<a href="student-list.html" class="class-card-button">See Class Details</a>
+				</div>
+				<div class="card class-card">
+					<input type="checkbox" class="class-card-icon-button"><i data-feather="tag"></i></input>
+					<p class="card-title">Class B</p>
+					<canvas id="classpie2" height="150" width="150""></canvas>
+					<a href="student-list.html" class="class-card-button">See Class Details</a>
+				</div>
+				<div class="card class-card">
+					<input type="checkbox" class="class-card-icon-button"><i data-feather="tag"></i></input>
+					<p class="card-title">Class C</p>
+					<canvas id="classpie3" height="150" width="150""></canvas>
+					<a href="student-list.html" class="class-card-button">See Class Details</a>
+				</div>
+
+	
+			</div>
+
+			<div class="bottom">
+				<div class="card note">
+					<p class="card-title">Teacher's Note   <i data-feather="edit"></i></p>
+					<p class="card-des">Nothing to show here</p>
+
+				</div>
+			</div>
+
+		</div>
+	</div>
+	
+	<script>
+		feather.replace();
+		var class1Data = {
+		    datasets: [{
+		        data: [5, 12, 7],
+			    backgroundColor: [
+	                    "rgba(255, 99, 132, 0.2)",
+	                    "rgba(54, 162, 235, 0.2)",
+	                    "rgba(255, 206, 86, 0.2)"
+	            ],
+	            borderColor: [
+	                    "rgba(255,99,132,1)",
+	                    "rgba(54, 162, 235, 1)",
+	                    "rgba(255, 206, 86, 1)"
+	            ],
+	            borderWidth: 1
+		    }],
+
+		    // These labels appear in the legend and in the tooltips when hovering different arcs
+		    labels: [
+		        'High',
+		        'Moderate',
+		        'Low'
+		    ]
+		};
+
+		var class2Data = {
+		    datasets: [{
+		        data: [3, 15, 5],
+			    backgroundColor: [
+	                    "rgba(255, 99, 132, 0.2)",
+	                    "rgba(54, 162, 235, 0.2)",
+	                    "rgba(255, 206, 86, 0.2)"
+	            ],
+	            borderColor: [
+	                    "rgba(255,99,132,1)",
+	                    "rgba(54, 162, 235, 1)",
+	                    "rgba(255, 206, 86, 1)"
+	            ],
+	            borderWidth: 1
+		    }],
+
+		    // These labels appear in the legend and in the tooltips when hovering different arcs
+		    labels: [
+		        'High',
+		        'Moderate',
+		        'Low'
+		    ]
+		};
+
+		var class3Data = {
+		    datasets: [{
+		        data: [5, 10, 10],
+			    backgroundColor: [
+	                    "rgba(255, 99, 132, 0.2)",
+	                    "rgba(54, 162, 235, 0.2)",
+	                    "rgba(255, 206, 86, 0.2)"
+	            ],
+	            borderColor: [
+	                    "rgba(255,99,132,1)",
+	                    "rgba(54, 162, 235, 1)",
+	                    "rgba(255, 206, 86, 1)"
+	            ],
+	            borderWidth: 1
+		    }],
+
+		    // These labels appear in the legend and in the tooltips when hovering different arcs
+		    labels: [
+		        'High',
+		        'Moderate',
+		        'Low'
+		    ]
+		};
+		var ctx = document.getElementById("classpie1").getContext('2d');
+		var classpie1 = new Chart(ctx, {
+		    type: 'pie',
+		    data: class1Data,
+		    options:{
+		    	scales: {
+	                yAxes: [{
+	                	display:false,
+	                    ticks: {
+	                        beginAtZero: true,
+	                    }
+	                }],
+	                xAxes: []
+                
+           		 },
+	            legend:{
+	            	position:'bottom'
+	            }
+		    }
+		});
+
+		var ctx2 = document.getElementById("classpie2").getContext('2d');
+		var classpie2 = new Chart(ctx2, {
+		    type: 'pie',
+		    data: class2Data,
+		    options:{
+		    	scales: {
+	                yAxes: [{
+	                	display:false,
+	                    ticks: {
+	                        beginAtZero: true,
+	                    }
+	                }],
+	                xAxes: []
+                
+           		 },
+	            legend:{
+	            	position:'bottom'
+	            }
+		    }
+		});
+
+		var ctx3 = document.getElementById("classpie3").getContext('2d');
+		var classpie3 = new Chart(ctx3, {
+		    type: 'pie',
+		    data: class3Data,
+		    options:{
+		    	scales: {
+	                yAxes: [{
+	                	display:false,
+	                    ticks: {
+	                        beginAtZero: true,
+	                    }
+	                }],
+	                xAxes: []
+                
+           		 },
+	            legend:{
+	            	position:'bottom'
+	            }
+		    }
+		});
+
+	</script>
+</body>
+</html>
