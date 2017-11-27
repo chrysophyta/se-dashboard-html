@@ -34,8 +34,13 @@
 			<p class="card-title">Class A</p>
 			<div class="top">
 				<div class="card tab1">
-					<canvas id="linegraph" height="100" width="100"></canvas>
-					<canvas id="piechart" height="100" width="100"></canvas>
+					<div class="graph">
+						<canvas id="linegraph" height="350" width="500"></canvas>
+					</div>
+					<div class="graph">
+						<canvas id="piechart" height="350" width="350"></canvas>
+					</div>
+
 				</div>
 				<div class="card tab2 hide"></div>
 				<div class="card tab3 hide"></div>
@@ -47,7 +52,7 @@
 
   	var ctx = document.getElementById("linegraph").getContext('2d');
 	var linegraph = new Chart(ctx, {
-	    type: 'bar',
+	    type: 'line',
 	    data: {
 	        labels: ["January", "February", "March", "April", "May", "June"],
 	        datasets: [{
@@ -168,6 +173,10 @@
 		    type: 'pie',
 		    data: pieData,
 		    options:{
+			    title:{
+	                display:true,
+	                text:"At-Risk Students Percentages"
+	            },
 		    	scales: {
 	                yAxes: [{
 	                	display:false,

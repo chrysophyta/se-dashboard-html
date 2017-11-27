@@ -335,7 +335,7 @@ thead td {
 
 }
 
-.card input[type="checkbox"] {
+#students input[type="checkbox"] {
 	opacity: 0;
 	cursor: pointer;
 }
@@ -376,6 +376,12 @@ a.class-card-button:hover{
 	width:100%;
 }
 
-.card.tab1 {
+.tab1{
 	display: flex;
+	justify-content: space-around;
+}
+
+#linegragh {
+	height:100px;
+	width:100px;
 }
