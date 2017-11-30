@@ -33,7 +33,18 @@
 		<div class="h-content">
 			<p class="card-title">Class A</p>
 			<div class="top">
-				<div class="card tab1">
+				<div class="tabs">
+					<div class="tab tab1 active">
+						<a href="student-list.html"><p class="tab-label">Graphs</p></a>
+					</div>
+					<div class="tab tab2">
+						<a href="student-details.html"><p class="tab-label">Students</p></a>
+					</div>
+					<div class="tab tab3">
+						<a href="student-game.html"><p class="tab-label">Game History</p></a>
+					</div>
+				</div>
+				<div class="card tab-content graph">
 					<div class="graph">
 						<canvas id="linegraph" height="350" width="500"></canvas>
 					</div>
@@ -42,8 +53,7 @@
 					</div>
 
 				</div>
-				<div class="card tab2 hide"></div>
-				<div class="card tab3 hide"></div>
+
 			</div>
 		</div>
 	</div>
@@ -56,66 +66,66 @@
 	    data: {
 	        labels: ["January", "February", "March", "April", "May", "June"],
 	        datasets: [{
-	            label: 'Class A',
+	            label: 'High Risk',
 	            data: [12, 8, 3, 5, 2, 3],
 	            backgroundColor: [
-	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(255, 99, 132, 0.2)',
-	                'rgba(255, 99, 132, 0.2)',
+					"rgba(54, 200, 235, 0.8)",
+					"rgba(54, 200, 235, 0.8)",
+					"rgba(54, 200, 235, 0.8)",
+					"rgba(54, 200, 235, 0.8)",
+					"rgba(54, 200, 235, 0.8)",
+					"rgba(54, 200, 235, 0.8)"
 	                
 	            ],
 	            borderColor: [
-	                'rgba(255,99,132,1)',
-	                'rgba(255,99,132,1)',
-	                'rgba(255,99,132,1)',
-	                'rgba(255,99,132,1)',
-	                'rgba(255,99,132,1)',
-	                'rgba(255,99,132,1)',
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
 	            ],
 	            borderWidth: 1
 	        }, {
-	            label: 'Class B',
+	            label: 'Moderate',
 	            data: [3, 8, 2, 7, 4, 6],
 	            backgroundColor: [
-	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(54, 162, 235, 0.2)',
-	                'rgba(54, 162, 235, 0.2)',
+					"rgba(54, 200, 235, 0.4)",
+					"rgba(54, 200, 235, 0.4)",
+					"rgba(54, 200, 235, 0.4)",
+					"rgba(54, 200, 235, 0.4)",
+					"rgba(54, 200, 235, 0.4)",
+					"rgba(54, 200, 235, 0.4)"
 	                
 	            ],
 	            borderColor: [
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(54, 162, 235, 1)',
-	                'rgba(54, 162, 235, 1)',
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
 	            ],
 	            borderWidth: 1
 	        }, {
-	            label: 'Class C',
+	            label: 'Low Risk',
 	            data: [5, 1, 5, 3, 7, 2],
 	            backgroundColor: [
-	                'rgba(255, 206, 86, 0.2)',
-	                'rgba(255, 206, 86, 0.2)',
-	                'rgba(255, 206, 86, 0.2)',
-	                'rgba(255, 206, 86, 0.2)',
-	                'rgba(255, 206, 86, 0.2)',
-	                'rgba(255, 206, 86, 0.2)',
+					"rgba(54, 200, 235, 0.1)",
+					"rgba(54, 200, 235, 0.1)",
+					"rgba(54, 200, 235, 0.1)",
+					"rgba(54, 200, 235, 0.1)",
+					"rgba(54, 200, 235, 0.1)",
+					"rgba(54, 200, 235, 0.1)"
 	                
 	            ],
 	            borderColor: [
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(255, 206, 86, 1)',
-	                'rgba(255, 206, 86, 1)',
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
+	            	"rgba(54, 200, 235, 1)",
 	            ],
 	            borderWidth: 1
 	        }]
@@ -149,14 +159,15 @@
 		    datasets: [{
 		        data: [5, 10, 10],
 			    backgroundColor: [
-	                    "rgba(255, 99, 132, 0.2)",
-	                    "rgba(54, 162, 235, 0.2)",
-	                    "rgba(255, 206, 86, 0.2)"
+		            	"rgba(54, 200, 235, 0.8)",
+		            	"rgba(54, 200, 235, 0.4)",
+	    	        	"rgba(54, 200, 235, 0.1)",
 	            ],
 	            borderColor: [
-	                    "rgba(255,99,132,1)",
-	                    "rgba(54, 162, 235, 1)",
-	                    "rgba(255, 206, 86, 1)"
+		            	"rgba(54, 200, 235, 1)",
+		            	"rgba(54, 200, 235, 1)",
+	    	        	"rgba(54, 200, 235, 1)",
+
 	            ],
 	            borderWidth: 1
 		    }],

@@ -9,7 +9,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 </head>
-<body id="games">
+<body id="student-game">
 	<nav>
 		<ul>
 			<li class="logo"><a href="index.html"></a></li>
@@ -31,25 +31,28 @@
 		</div>
 		
 		<div class="h-content">
-		
+			<p class="card-title">Class A</p>
 			<div class="top">
-				<button class="schedule-games"><i data-feather="clock"></i>Schedule Games</button>
-				<button class="my-games"><i data-feather="folder"></i>My Games</button>
-			</div>
+				<div class="tabs">
+					<div class="tab tab1">
+						<a href="student-list.html"><p class="tab-label">Graphs</p></a>
+					</div>
+					<div class="tab tab2">
+						<a href="student-details.html"><p class="tab-label">Students</p></a>
+					</div>
+					<div class="tab tab3 active">
+						<a href="student-game.html"><p class="tab-label">Game History</p></a>
+					</div>
+				</div>
+				<div class="card tab-content game-history">
 
-			<div class="bottom">
-				<p class="card-title">New Games</p>
-				<img src="img/new-game.png" alt="">
-				<p class="card-title">All Games</p>
-				<img src="img/game-list1.png" alt="">
-				<img src="img/game-list2.png" alt="">
-			</div>
+				</div>
 
+			</div>
 		</div>
 	</div>
 	<script>
-		feather.replace();
-	</script>
-
+  	feather.replace()
+  	</script>	
 </body>
 </html>

@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Self Emotion Dashboard</title>
+	<link rel="stylesheet" href="style.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/7.0.0/normalize.min.css">
+
+	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
+
+</head>
+<body id="student-details">
+	<nav>
+		<ul>
+			<li class="logo"><a href="index.html"></a></li>
+			<li class="empty"></li>
+			<li class="welcome">Hi, Justin</li>
+			<li class="nav-item"><a href="#"><i data-feather="settings"></i>Account</a></li>
+			<li class="nav-item"><a href="#"><i data-feather="power"></i>Logout</a></li>
+		</ul>
+		
+	</nav>
+	<div class="wrapper">
+		<div class="sidebar">
+			<ul>
+				<li><a href="index.html"><i data-feather="home"></i>Dashboard</a></li>
+				<li><a href="students.html"><i data-feather="user"></i>Students</a></li>
+				<li><a href="tasks.html"><i data-feather="check-square"></i>Tasks</a></li>
+				<li><a href="games.html"><i data-feather="grid"></i>Games</a></li>
+			</ul>
+		</div>
+		
+		<div class="h-content">
+			<p class="card-title">Class A</p>
+			<div class="top">
+				<div class="tabs">
+					<div class="tab tab1 ">
+						<a href="student-list.html"><p class="tab-label">Graphs</p></a>
+					</div>
+					<div class="tab tab2 active">
+						<a href="student-details.html"><p class="tab-label">Students</p></a>
+					</div>
+					<div class="tab tab3">
+						<a href="student-game.html"><p class="tab-label">Game History</p></a>
+					</div>
+				</div>
+
+			</div>
+			<div class="bottom">
+				<div class="card tab-content list-content">
+
+
+					<div class="list-area" id="users">
+						<div class="list-input-wrapper">
+							<input class="search" placeholder="Search" />
+							<button class="sort" data-sort="name">
+							    Sort by name
+							</button>
+							<button class="sort" data-sort="status">
+							    Sort by Status
+							</button>
+						</div>
+						<table>
+						    <!-- IMPORTANT, class="list" have to be at tbody -->
+						   	<tr>
+							    <th class="name">Name</th>
+							    <th class="grade">Grade</th>
+						        <th class="status">Status</th>
+						    </tr>
+						    <tbody class="list">
+						      <tr>
+						        <td class="name">Anna Patrickson</td>
+						        <td class="grade">B-</td>
+						        <td class="status">Low Risk</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Jonas Arnklint</td>
+						        <td class="grade">B-</td>
+						        <td class="status">Moderate</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Martina Elm</td>
+						        <td class="grade">A</td>
+						        <td class="status">At Risk</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Travis Bowman</td>
+						        <td class="grade">B+</td>
+						        <td class="status red">At Rist</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Edith Robbins</td>
+						        <td class="grade">A-</td>
+						        <td class="status red">At Risk</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Glen Maxwell</td>
+						        <td class="grade">C+</td>
+						        <td class="status">Moderate</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Phoebe Mullins</td>
+						        <td class="grade">B-</td>
+						        <td class="status">Moderate</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Henrietta Barker</td>
+						        <td class="grade">A-</td>
+						        <td class="status red">At Risk</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Joshua Thornton</td>
+						        <td class="grade">A</td>
+						        <td class="status">Low Risk</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Steven Garner</td>
+						        <td class="grade">B+</td>
+						        <td class="status">Moderate</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Ina Murray</td>
+						        <td class="grade">C+</td>
+						        <td class="status">Moderate</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Charlie May</td>
+						        <td class="grade">A-</td>
+						        <td class="status">Low Risk</td>
+						      </tr>						      <tr>
+						        <td class="name">Katherine King</td>
+						        <td class="grade">B-</td>
+						        <td class="status">Moderate</td>
+						      </tr>
+						      <tr>
+						        <td class="name">Gerald Santos</td>
+						        <td class="grade">B</td>
+						        <td class="status">Low Risk</td>
+						      </tr>
+	
+
+						    </tbody>
+						  </table>
+					</div>
+					<div class="detail-area">
+						<div class="detail-name">Anna Patrickson</div>
+							<p class="section-head">-</p>
+						<p class="section-head">Status: Low Risk</p>
+						<p class="section-head">Last Result: 11/25/2017</p>
+						<p class="section-head">Grade: B-</p>
+						<p class="section-head">Email: <a>anna0711@gmail.com</a></p>
+						<p class="section-head">-</p>
+						<p class="section-head">Teacher's Note: </p>
+						<p class="detail-des">Anna is a sensitive girl. She doesn't have lots of friends.</p>
+						<button class="expand">Expand</button>
+					</div>
+			</div>
+			</div>
+		</div>
+	</div>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/list.js/1.5.0/list.min.js"></script>
+	<script>
+  	feather.replace()
+
+  	var options = {
+  		valueNames: [ 'name', 'grade', 'status' ]
+	};
+
+	var canvas = document.createElement("canvas");
+		canvas.width=500;
+		canvas.height=300;
+		canvas.id="linegraph";
+
+	var userList = new List('users', options);
+
+	function drawGraph(){
+
+		var ctx = document.getElementById("linegraph").getContext('2d');
+		var linegraph = new Chart(ctx, {
+		    type: 'line',
+		    data: {
+		        labels: ["January", "February", "March", "April", "May", "June"],
+		        datasets: [{
+		            label: 'Class A',
+		            data: [12, 8, 3, 5, 2, 3],
+		            backgroundColor: [
+ 						"rgba(54, 200, 235, 0.1)",
+ 						"rgba(54, 200, 235, 0.1)",
+ 						"rgba(54, 200, 235, 0.1)",
+ 						"rgba(54, 200, 235, 0.1)",
+ 						"rgba(54, 200, 235, 0.1)",
+ 						"rgba(54, 200, 235, 0.1)",
+		                
+		            ],
+		            borderColor: [
+		 				"rgba(54, 200, 235, 1)",
+		 				"rgba(54, 200, 235, 1)",
+		 				"rgba(54, 200, 235, 1)",
+		 				"rgba(54, 200, 235, 1)",
+		 				"rgba(54, 200, 235, 1)",
+		 				"rgba(54, 200, 235, 1)",
+		            ],
+		            borderWidth: 1
+		        },]
+		    },
+		    options: {
+		    	 title:{
+	                display:true,
+	                text:"Anna's Graph Jan-Jun 2017"
+	            },
+	            legend:{
+	            	display:false
+	            },
+	             tooltips: {
+	             mode: 'index',
+	             intersect: false
+	            },
+		        scales: {
+		            yAxes: [{
+		                ticks: {
+		                    beginAtZero:true,
+
+		                },
+		                stacked:true,
+		            }],
+		        	xAxes: [{
+		        		stacked: true
+		        	}]
+		        },
+		        responsive:true
+		    }
+		})
+	}
+	
+
+	let expand = document.querySelector('.expand');
+	let detailArea = document.querySelector('.detail-area');
+	let listArea = document.querySelector('.list-area');
+	let grade = document.querySelectorAll('.grade');
+	let detailDes = document.querySelector('.detail-des');
+	let toggleOn = true;
+
+	expand.addEventListener('click', function(){
+		if(toggleOn){
+			detailArea.style.flex = 3;
+			listArea.style.flex = 1;
+			listArea.style.display='initial';
+			grade.forEach((a)=>a.style.display = 'none');
+			expand.innerHTML = 'Fold';
+			detailArea.insertBefore(canvas,detailDes);
+			drawGraph();
+			toggleOn=!toggleOn;
+
+		}else{
+			listArea.style.display='flex';
+			detailArea.style.flex = 1;
+			listArea.style.flex = 3;
+			grade.forEach((a)=>a.style.display = 'table-cell');
+			expand.innerHTML = 'Expand';
+			detailArea.removeChild(canvas);
+			toggleOn=!toggleOn;
+		}
+	});
+
+
+  </script>
+</body>
+</html>

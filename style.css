@@ -88,7 +88,7 @@ nav ul li {
 /*======== Wrapper (that wraps .sidebar and .content) =========*/
 .wrapper {
 	display: flex;
-	height:770px;
+	height:720px;
 	align-items: stretch;
 }
 
@@ -193,7 +193,7 @@ nav ul li {
 	font-weight: 300;
 	text-align: left; 
 	margin: 0;
-	margin-bottom: 20px;
+	margin-bottom: 15px;
 }
 
 .card-des, .event-time {
@@ -214,7 +214,8 @@ nav ul li {
 }
 
 .tasks-item, .event{
-	margin:10px;
+	margin:5px;
+	text-align: left; 
 }
 
 .class-overview {
@@ -331,22 +332,23 @@ thead td {
 }
 
 .card svg.feather.feather-tag:hover{
-	opacity: 0.8;
+	color: var(--light-blue);
 
 }
 
 #students input[type="checkbox"] {
 	opacity: 0;
 	cursor: pointer;
+	transform: scale(5);
 }
 
-/*not working*/
-.class-card-icon-button input:checked + i{
-	color: red;
+input[type="checkbox"]:checked + svg.feather{
+ 	fill:var(--light-blue);
+ 	 stroke:var(--dark-blue);
 }
 
 canvas{
-	margin-bottom: 30px;
+	margin-bottom: 15px;
 }
 a.class-card-button{
 	text-decoration: none;
@@ -368,15 +370,42 @@ a.class-card-button:hover{
 
 /*============student list===========*/
 
-.hide{
-	display:none;
-}
-
-#student-list .top{
+#student-list .top {
 	width:100%;
+	flex-direction: column;
 }
 
-.tab1{
+.tabs {
+	display: flex;
+
+}
+
+.tab {
+	width: 300px;
+	height: 45px;
+	background: var(--light-grey);
+	border-bottom: white;
+	border-radius: 10px 10px 0px 0px;
+	margin-right: 1px;
+    box-shadow: 0px 0px 5px rgba(0,0,0,0.1);
+}
+
+.tab.active {
+	background: white;
+	box-shadow: 2px -2px 3px rgba(0,0,0,0.1);
+	z-index: 10;
+}
+
+.tab-label {
+	font-weight: 300;
+	color:var(--dark-blue);
+}
+
+.tab a {
+	text-decoration: none;
+}
+
+.tab-content {
 	display: flex;
 	justify-content: space-around;
 }
@@ -385,3 +414,271 @@ a.class-card-button:hover{
 	height:100px;
 	width:100px;
 }
+
+/*============student details===========*/
+
+#student-details .top {
+	height: auto;
+	width: 100%;
+	flex-direction: column;
+}
+
+#student-details .bottom {
+	padding-top: 0;
+	display: flex;
+}
+
+.list-content {
+	display:flex;
+}
+.list-area {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	flex-grow: 1;
+	overflow-y: scroll;
+	padding-right:10px;
+}
+
+.list-area th{
+	font-weight: 300;
+}
+
+.list>:nth-child(2n) {
+	background: var(--light-grey);
+}
+
+.detail-area {
+	width: 300px;
+	border: var(--light-grey) 1px solid;
+	border-radius: 5px;
+	padding: 20px;
+	text-align: left;
+	overflow-y: scroll;
+}
+
+.detail-name {
+	font-weight: 300;
+	font-size: var(--large)
+}
+
+td {
+  padding:10px; 
+  border:solid 1px #eee;
+}
+
+#student-details input {
+  border:solid 1px #ccc;
+  border-radius: 5px;
+  padding:7px 14px;
+  margin-bottom:10px
+}
+#student-details input:focus {
+  outline:none;
+  border-color:#aaa;
+}
+.sort {
+  padding:8px 30px;
+  margin:5px;
+  border-radius: 3px;
+  border:none;
+  display:inline-block;
+  color:#fff;
+  text-decoration: none;
+  background-color: var(--light-blue);
+  min-height:30px;
+}
+.sort:hover {
+  text-decoration: none;
+  background-color:#1b8aba;
+}
+.sort:focus {
+  outline:none;
+}
+.sort:after {
+  display:inline-block;
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid transparent;
+  content:"";
+  position: relative;
+  top:-10px;
+  right:-5px;
+}
+.sort.asc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:4px;
+  right:-5px;
+}
+.sort.desc:after {
+  width: 0;
+  height: 0;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-bottom: 5px solid #fff;
+  content:"";
+  position: relative;
+  top:-4px;
+  right:-5px;
+}
+
+.list-input-wrapper {
+	display: flex;
+	align-items: baseline;
+	flex-wrap: wrap;
+}
+
+
+/*============student game===========*/
+
+#student-game .top {
+	flex-direction: column;
+}
+
+
+/*============tasks===========*/
+
+#student-game .top {
+	flex-direction: column;
+}
+
+
+#tasks .left {
+	flex: 1;
+}
+
+#tasks .right {
+	flex: 3;
+}
+
+.watch-wrapper {
+	display: flex;
+	width: 100%;
+	height: 95%;
+	align-items: stretch;
+}
+
+.watch-names {
+	flex: 1;
+	background:var(--light-grey );
+	margin-right: 10px;
+	padding:10px;
+
+	text-align: left;
+}
+
+.name1 {
+	margin:10px;
+	padding:10px;
+}
+
+
+.selected, .name1:hover{
+	color: var(--light-blue);
+	background: white;
+}
+
+.watch-details {
+	flex: 3;
+	padding:10px;
+	text-align: left;
+}
+
+.detail-des {
+	word-wrap: break-word;
+}
+
+.hide {
+	display: none;
+}
+
+.add-new {
+	display: flex;
+	margin-bottom:30px;
+}
+
+.add-new input[type="text"]{
+	padding:10px;
+
+}
+
+.add-new input[type="submit"]{
+	background: var(--light-blue);
+	color:white;
+	border:none;
+}
+
+.tasks-list>.tasks-item {
+	margin-top:30px;
+}
+
+/*==============Games=========*/
+
+#games .top {
+	height:auto;
+	justify-content: flex-start;
+}
+
+#games .bottom {
+	flex-direction: column;
+	overflow: hidden;
+}
+
+#games .card-title{
+	margin:10px;
+	padding-left:10px;
+}
+
+.bottom img {
+	align-self: flex-start;
+	transform:scale(1);
+}
+
+
+#games button {
+	background: white;
+	border:var(--light-blue) 1px solid;
+	margin: 10px!important;
+	font-weight: 300;
+	color: var(--light-blue);
+	width:250px;
+	height:50px;
+	padding-bottom: 10px;
+}
+
+.schedule-games svg.feather, .my-games svg.feather {
+	color:var(--light-blue);
+	transform: scale(0.9) translateY(7px);
+}
+
+.red {
+	color:red;
+}
+
+p, ul.possible-cause{
+	font-weight: 300;
+}
+.section-head {
+	font-weight: 400;
+}
+
+.recommendation {
+	margin-top:30px;
+}
+
+.notice {
+	color:grey;
+	font-size: 10px;
+}
+
+
+
+

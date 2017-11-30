@@ -9,7 +9,7 @@
 	<script src="https://cdn.jsdelivr.net/npm/feather-icons/dist/feather.min.js"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.bundle.min.js"></script>
 </head>
-<body>
+<body id="tasks">
 	<nav>
 		<ul>
 			<li class="logo"><a href="index.html"></a></li>
@@ -30,27 +30,96 @@
 			</ul>
 		</div>
 		
-		<div class="content">
+		<div class="v-content">
 		
 			<div class="left">
-				<div class="card news">
-					
-				</div>
-				<div class="card class-overview">
-					
+				<div class="card tasks-list">
+					<p class="card-title">To-do List</p>
+					<div class="add-new">	
+						<input type="text" placeholder="Add New Task"></input>
+						 <input type="submit" value="Add"></input>
+					</div>
+
+					 <div class="tasks-item">
+						<input type="checkbox" name="task1"/>
+						<label for="task1"> Talk to Anna's Parents</label>
+					</div>
+
+					<div class="tasks-item">
+						<input type="checkbox" name="task2"/>
+						<label for="task2"> Finish Class A exam marking</label>
+					</div>
+
+					<div class="tasks-item">
+						<input type="checkbox" name="task3"/>
+						<label for="task3"> Give feedback on John's recommendation</label>
+					</div>
+
+					<div class="tasks-item">
+						<input type="checkbox" name="task3"/>
+						<label for="task3"> Check Travis's Status</label>
+					</div>
 				</div>
 	
 			</div>
 
 			<div class="right">
-				<div class="card calendar">
-					
+				<div class="card watch-list">
+					<p class="card-title">Watch List</p>
+					<div class="watch-wrapper">
+						<div class="watch-names">
+							<div class="name1 selected">Travis Bowman</div>
+							<div class="name1">Jared Harmon</div>
+							<div class="name1">Edith Robbins</div>
+							<div class="name1">Luis Dean</div>
+							<div class="name1">Glen Maxwell</div>
+							<div class="name1">Josephine Rose</div>
+							<div class="name1">Phoebe Mullins</div>
+							<div class="name1">Stanley Jackson</div>
+							<div class="name1">Henrietta Barker</div>
+							<div class="name1">Cameron Nguyen</div>
+							<div class="name1">Joshua Thornton</div>
+							<div class="name1">Lawrence Ferguson</div>
+						</div>
+						<div class="watch-details">
+							<p class="card-title">Travis Bowman</p>
+							<p class="section-head">Status: <span class="red"> At Risk</span></p>
+							<p>The last game result indicated that Travis is at risk. This is the first time in 3 months that the result came back as 'at risk'</p>
+
+							<p class="section-head">Possible Cause: </p>
+							<ul class="possible-cause">
+								<li>- Peer Pressure</li>
+								<li>- Academic Pressure</li>
+								<li>- Bullying</li>
+							</ul>
+							<p class="notice">Does the possible cause deducted matches your observation? <span style="color:blue" >Yes / No</span></p>
+							<div class="recommendation">
+								<p class="card-title">Recommendation</p>
+
+								<ul class="possible-cause">
+									<li>- Talk to Travis' Friend</li>
+									<li>- Review Travis' Grades</li>
+									<li>- Talk to Travis' Parents</li>
+								</ul>
+								<p class="notice">Select options above to add the To-do List</p>
+								<p class="section-head">Related Experts</p>
+
+								<ul class="possible-cause">
+									<li>- Allison's Clinic<span class="notice" style="color:blue" >-  Contact</span></li>
+									<li>- The ORG of Children Mental Health<span class="notice" style="color:blue" >  -  Contact</span></li>
+								</ul>
+							</div>
+						</div>
+					</div>
 
 				</div>
 			</div>
 
 		</div>
 	</div>
+	<script>
+		feather.replace()
+	</script>
 
 </body>
 </html>
